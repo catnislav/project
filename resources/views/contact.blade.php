@@ -1,3 +1,3 @@
-<x-layout title="Contact">
-    <h1>Contact</h1>
+<x-layout :$title>
+    <h1>{{ $title }}</h1>
 </x-layout>

@@ -1,3 +1,4 @@
-<x-layout title="Welcome">
-    <h1>Welcome</h1>
+<x-layout :$title>
+    <h1>{{ $title }}</h1>
+    <x-card class="bg-gray-100">Card content</x-card>
 </x-layout>

@@ -1,3 +1,3 @@
-<x-layout title="About">
-    <h1>About</h1>
+<x-layout :$title>
+    <h1>{{ $title }}</h1>
 </x-layout>

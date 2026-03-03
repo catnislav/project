@@ -2,6 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'welcome');
-Route::view('/about', 'about');
-Route::view('/contact', 'contact');
+Route::view('/', 'welcome', ['title' => 'Welcome']);
+Route::view('/about', 'about', ['title' => 'About']);
+Route::view('/contact', 'contact', ['title' => 'Contact']);
