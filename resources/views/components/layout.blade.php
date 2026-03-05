@@ -20,11 +20,12 @@
     </style>
 </head>
 
-<body>
+<body class="max-w-xl mx-auto p-6">
     <nav>
         <a href="/">Home</a>
         <a href="/about">About</a>
         <a href="/contact">Contact</a>
+        <a href="/ideas">Ideas</a>
     </nav>
 
     <main>
