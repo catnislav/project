@@ -1,12 +1,9 @@
 <?php
 
-// use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\IdeaController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'welcome', ['title' => 'Welcome']);
-Route::view('/about', 'about', ['title' => 'About']);
-Route::view('/contact', 'contact', ['title' => 'Contact']);
+Route::redirect('/', '/ideas');
 
 Route::get('/ideas', [IdeaController::class, 'index']);
 Route::get('/ideas/create', [IdeaController::class, 'create']);

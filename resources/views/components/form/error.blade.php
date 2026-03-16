@@ -2,8 +2,8 @@
     'name' => 'required',
 ])
 @error($name)
-    <p class="mt-2 text-xs text-red-600">{{ $message }}</p>
+    <p class="mt-2 text-xs text-error">{{ $message }}</p>
 @enderror
 {{-- @if ($errors->has('description'))
-    <p class="mt-2 text-xs text-red-600">{{ $errors->first('description') }}</p>
+    <p class="mt-2 text-xs text-error">{{ $errors->first('description') }}</p>
 @endif --}}

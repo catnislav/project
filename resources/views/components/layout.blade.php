@@ -3,7 +3,7 @@
 ])
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="lofi">
 
 <head>
     <meta charset="UTF-8">
@@ -11,28 +11,60 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title }}</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style>
-        .card {
-            border: 1px solid #ccc;
-            padding: 16px;
-            border-radius: 8px;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body class="max-w-xl mx-auto p-6">
+<body>
     <header>
-        <nav>
-            <a href="/" class="underline hover:no-underline">Home</a>
-            <a href="/about" class="underline hover:no-underline">About</a>
-            <a href="/contact" class="underline hover:no-underline">Contact</a>
-            <a href="/ideas" class="underline hover:no-underline">Ideas</a>
+        <nav class="navbar bg-base-100 shadow-sm px-6">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+                    </div>
+                    <ul
+                        tabindex="-1"
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        <li><a href="/">Item 1</a></li>
+                        <li>
+                        <a>Parent</a>
+                        <ul class="p-2">
+                            <li><a>Submenu 1</a></li>
+                            <li><a>Submenu 2</a></li>
+                        </ul>
+                        </li>
+                        <li><a>Item 3</a></li>
+                    </ul>
+                </div>
+                <a href="/" class="btn btn-ghost text-xl">Home</a>
+            </div>
+
+            <div class="navbar-center hidden lg:hidden">
+                <ul class="menu menu-horizontal px-1">
+                <li><a>Item 1</a></li>
+                <li>
+                    <details>
+                    <summary>Parent</summary>
+                    <ul class="p-2 bg-base-100 w-40 z-1">
+                        <li><a>Submenu 1</a></li>
+                        <li><a>Submenu 2</a></li>
+                    </ul>
+                    </details>
+                </li>
+                <li><a>Item 3</a></li>
+                </ul>
+            </div>
+
+            <div class="navbar-end">
+                <a href="/register" class="btn">Register</a>
+            </div>
         </nav>
 
-        <h1 class="text-lg font-medium mt-6">{{ $title }}</h1>
+        <h1 class="text-lg font-medium mt-6 px-6">{{ $title }}</h1>
     </header>
 
-    <main class="py-6">
+    <main class="p-6">
         {{ $slot }}
     </main>
 </body>

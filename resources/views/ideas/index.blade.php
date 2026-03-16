@@ -2,23 +2,30 @@
     @if (count($ideas))
         <div>
             {{-- <h2 class="text-lg font-medium">Saved Ideas</h2> --}}
-            <ul class="list-disc pl-5">
+            <ul class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 @foreach ($ideas as $idea)
                     <li>
-                        <a href="/ideas/{{ $idea->id }}" class="underline hover:no-underline">
-                            {{ $idea->description }}
-                        </a>
-                        <span class="float-right">
-                            {{ $idea->state }}
-                        </span>
+                        <div class="card card-border bg-base-100">
+                            <div class="card-body">
+                                <span class="badge badge-outline badge-primary">
+                                    {{ $idea->state }}
+                                </span>
+                                <h2 class="card-title hidden">Card Title</h2>
+                                <a href="/ideas/{{ $idea->id }}" class="underline hover:no-underline">
+                                    {{ $idea->description }}
+                                </a>
 
+                                <div class="card-actions justify-end hidden">
+                                    <button class="btn btn-primary">Buy Now</button>
+                                </div>
+                            </div>
+                        </div>
                     </li>
                 @endforeach
             </ul>
 
             <div class="flex items-center justify-end gap-x-6 mt-6">
-                <a class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                    href="/ideas/create">Create a new idea</a>
+                <a class="btn btn-primary" href="/ideas/create">Create a new idea</a>
             </div>
         </div>
     @else
