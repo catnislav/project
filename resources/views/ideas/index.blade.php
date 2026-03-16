@@ -1,8 +1,6 @@
 <x-layout :$title>
-    <h1 class="text-lg font-medium mt-6">{{ $title }}</h1>
-
     @if (count($ideas))
-        <div class="mt-6">
+        <div>
             {{-- <h2 class="text-lg font-medium">Saved Ideas</h2> --}}
             <ul class="list-disc pl-5">
                 @foreach ($ideas as $idea)
@@ -25,6 +23,6 @@
         </div>
     @else
         <p class="mt-3 text-sm/6 text-gray-600">No ideas created yet. <a href="/ideas/create"
-                class="underline hover:no-underline">Create a new one !</a></p>
+                class="text-indigo-600 underline hover:text-indigo-500 hover:no-underline">Create a new one !</a></p>
     @endif
 </x-layout>

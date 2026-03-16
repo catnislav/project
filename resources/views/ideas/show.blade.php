@@ -1,7 +1,5 @@
 <x-layout :$title>
-    <h1>{{ $title }}</h1>
-
-    <div class="mt-6">
+    <div>
         <p class="mt-2">
             Description: {{ $idea->description }}
         </p>

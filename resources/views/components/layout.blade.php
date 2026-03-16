@@ -21,14 +21,18 @@
 </head>
 
 <body class="max-w-xl mx-auto p-6">
-    <nav>
-        <a href="/" class="underline hover:no-underline">Home</a>
-        <a href="/about" class="underline hover:no-underline">About</a>
-        <a href="/contact" class="underline hover:no-underline">Contact</a>
-        <a href="/ideas" class="underline hover:no-underline">Ideas</a>
-    </nav>
+    <header>
+        <nav>
+            <a href="/" class="underline hover:no-underline">Home</a>
+            <a href="/about" class="underline hover:no-underline">About</a>
+            <a href="/contact" class="underline hover:no-underline">Contact</a>
+            <a href="/ideas" class="underline hover:no-underline">Ideas</a>
+        </nav>
 
-    <main>
+        <h1 class="text-lg font-medium mt-6">{{ $title }}</h1>
+    </header>
+
+    <main class="py-6">
         {{ $slot }}
     </main>
 </body>
