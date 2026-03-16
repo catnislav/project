@@ -56,8 +56,19 @@
                 </ul>
             </div>
 
-            <div class="navbar-end">
+            <div class="navbar-end gap-2">
+                @guest
                 <a href="/register" class="btn">Register</a>
+                <a href="/login" class="btn btn-primary">Login</a>
+                @endguest
+
+                @auth
+                    <form action="/logout" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn">Logout</button>
+                    </form>
+                @endauth
             </div>
         </nav>
 

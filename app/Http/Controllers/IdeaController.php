@@ -34,7 +34,7 @@ class IdeaController extends Controller
         //     'description' => ['required', 'min:5', 'max:255'],
         // ]);
 
-        Idea::create(['description' => $request->input('description'), 'state' => 'pending']);
+        Idea::create(['description' => $request->description, 'state' => 'pending']);
 
         return redirect('/ideas');
     }
@@ -60,7 +60,7 @@ class IdeaController extends Controller
      */
     public function update(IdeaRequest $request, Idea $idea)
     {
-        $idea->update(['description' => $request->input('description')]);
+        $idea->update(['description' => $request->description]);
 
         return redirect("/ideas/{$idea->id}");
     }
