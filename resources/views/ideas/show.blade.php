@@ -9,7 +9,8 @@
     </div>
 
     <div class="mt-6 flex items-center justify-end gap-x-6">
-        <a href="/ideas/{{ $idea->id }}/edit" class="btn btn-ghost">Edit</a>
+        <a href="/ideas" class="btn btn-ghost mr-auto">Back</a>
+        <a href="/ideas/{{ $idea->id }}/edit" class="btn">Edit</a>
         <form action="/ideas/{{ $idea->id }}" method="POST" class="inline">
             @csrf
             @method('DELETE')
