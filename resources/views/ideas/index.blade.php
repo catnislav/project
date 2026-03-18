@@ -7,7 +7,7 @@
                     <li>
                         <div class="card card-border bg-base-100">
                             <div class="card-body">
-                                <span class="badge badge-outline badge-primary">
+                                <span class="badge badge-soft badge-primary ml-auto">
                                     {{ $idea->state }}
                                 </span>
                                 <h2 class="card-title hidden">Card Title</h2>

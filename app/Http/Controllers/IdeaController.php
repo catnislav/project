@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\IdeaRequest;
 use App\Models\Idea;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class IdeaController extends Controller
 {
@@ -13,9 +14,9 @@ class IdeaController extends Controller
      */
     public function index()
     {
-        $ideas = Idea::where('user_id', Auth::id())->get();
+        // $ideas = Idea::where('user_id', Auth::id())->get();
 
-        return view('ideas.index', ['title' => 'Ideas', 'ideas' => $ideas]);
+        return view('ideas.index', ['title' => 'Ideas', 'ideas' => Auth::user()->ideas]);
     }
 
     /**
@@ -35,7 +36,11 @@ class IdeaController extends Controller
         //     'description' => ['required', 'min:5', 'max:255'],
         // ]);
 
-        Idea::create(['description' => $request->description, 'state' => 'pending', 'user_id' => Auth::id()]);
+        // Idea::create(['description' => $request->description, 'state' => 'pending', 'user_id' => Auth::id()]);
+
+        $idea = Auth::user()->ideas()->create(['description' => $request->description, 'state' => 'pending']);
+
+        // Notify admins about new idea
 
         return redirect('/ideas');
     }
@@ -45,6 +50,12 @@ class IdeaController extends Controller
      */
     public function show(Idea $idea)
     {
+        Gate::authorize('view', $idea);
+
+        // if (Auth::user()->cannot('view', $idea)) {
+        //     abort(404);
+        // }
+
         return view('ideas.show', ['title' => 'Your idea', 'idea' => $idea]);
     }
 
@@ -53,6 +64,8 @@ class IdeaController extends Controller
      */
     public function edit(Idea $idea)
     {
+        // Gate::authorize('view', $idea);
+
         return view('ideas.edit', ['title' => 'Edit your idea', 'idea' => $idea]);
     }
 

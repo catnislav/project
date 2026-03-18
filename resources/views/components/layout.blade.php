@@ -10,15 +10,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title }}</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" /> --}}
 </head>
 
 <body>
-    <header>
+    <header class="p-6">
         <div class="container mx-auto">
-            <nav class="navbar bg-base-100 border-b border-b-primary px-6">
+            <nav class="navbar bg-base-100 border-b border-b-primary px-0">
                 <div class="navbar-start">
                     <div class="dropdown">
                         <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -63,6 +64,10 @@
                     <a href="/login" class="btn btn-primary">Login</a>
                     @endguest
 
+                    @can('view-admin')
+                        <a href="/admin" class="btn btn-secondary">Admin</a>
+                    @endcan
+
                     @auth
                         <form action="/logout" method="POST">
                             @csrf
@@ -73,7 +78,7 @@
                 </div>
             </nav>
 
-            <h1 class="text-lg font-medium mt-6 px-6">{{ $title }}</h1>
+            <h1 class="text-lg font-medium mt-6">{{ $title }}</h1>
         </div>
     </header>
 
