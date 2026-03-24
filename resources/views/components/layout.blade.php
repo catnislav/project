@@ -42,8 +42,9 @@
                     <a href="/" class="btn btn-ghost text-xl">Home</a>
                 </div>
 
-                <div class="navbar-center hidden lg:hidden">
-                    <ul class="menu menu-horizontal px-1">
+                <div class="navbar-center">
+                    <p>Welcome, {{ auth()->user()->name ?? 'Guest' }}</p>
+                    <ul class="menu menu-horizontal px-1 hidden">
                         <li><a>Item 1</a></li>
                         <li>
                             <details>
